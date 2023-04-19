@@ -110,7 +110,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>sfml-system-d.lib;sfml-window-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -133,11 +133,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Blocks.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Block.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>

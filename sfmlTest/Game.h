@@ -1,13 +1,21 @@
 #pragma once
 #include "SFML/Graphics.hpp"
-
-
+#include "SFML/Audio.hpp"
+#include <iostream>
 
 class Game
 {
-private:
-	void initVariables();
+public:
 	sf::RenderWindow* window;
+
+	void initVariables();
+
+	sf::Sound sound;
+	sf::Sound sound2;
+	sf::SoundBuffer buffer;
+	sf::SoundBuffer buffer2;
+
+
 	sf::VideoMode videoMode;
 	sf::Event ev; 
 	sf::CircleShape ball;
@@ -22,6 +30,12 @@ private:
 
 
 	void Contorllers();
+
+
+	void UpdateBlocks();
+
+
+	void CreateBlocks();
 
 
 public :

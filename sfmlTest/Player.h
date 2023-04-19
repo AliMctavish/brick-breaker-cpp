@@ -9,7 +9,7 @@ public:
 
 	Player();
 
-	void init();
+
 
 
 	sf::Vector2f size;
