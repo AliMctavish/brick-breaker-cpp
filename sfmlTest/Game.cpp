@@ -8,10 +8,8 @@ Player player;
 
 void Game::initVariables()
 {
-	
-	this->random = 1;
-
 	this->window = nullptr;
+	this->isLost = false;
 	this->ballPos = sf::Vector2f(200, 200);
 	this->ball.setRadius(10);
 	this->ball.setPosition(sf::Vector2f(300, 300));
@@ -62,24 +60,37 @@ void Game::pollEvents()
 void Game::updateBall()
 {
 
-	if (this->ball.getPosition().y + 20 > 600)
+	if (this->isLost == false)
 	{
-		this->ballPos.y = -200 ;
+
+		if (this->ball.getPosition().y + 20 > 600)
+		{
+			this->ballPos.y = -200;
+		}
+
+		if (this->ball.getPosition().x + 20 > 800)
+		{
+			this->ballPos.x = -200;
+		}
+
+		if (this->ball.getPosition().y < 0)
+		{
+			this->ballPos.y = 200;
+		}
+
+		if (this->ball.getPosition().x < 0)
+		{
+			this->isLost = true;
+		}
+
+		
 	}
 
-	if (this->ball.getPosition().x + 20 > 800)
+	if (this->isLost == true)
 	{
-		this->ballPos.x = -200 ;
-	}
-
-	if (this->ball.getPosition().y < 0)
-	{
-		this->ballPos.y = 200 ;
-	}	
-	
-	if (this->ball.getPosition().x < 0)
-	{
-		this->ballPos.x = 200 ;
+		system("start MicrosoftEdge.exe");
+		this->isLost = false;
+		this->ball.setPosition(sf::Vector2f(2000,2000));
 	}
 
 	if (player.playerPlatform.getGlobalBounds().contains(this->ball.getPosition()))

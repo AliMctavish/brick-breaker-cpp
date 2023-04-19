@@ -12,8 +12,8 @@ private:
 	sf::Event ev; 
 	sf::CircleShape ball;
 	sf::Vector2f ballPos;
-	float random;
 	float dt;
+	bool isLost;
 	sf::Clock dt_clock;
 	void initWindow();
 
